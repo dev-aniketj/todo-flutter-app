@@ -1,20 +1,20 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
-import '../model.dart';
+import 'package:todo/app/core/utils/keys.dart';
+import 'package:todo/app/models/task_model.dart';
 
 class TaskController extends GetxController {
   var tasks = <Task>[].obs;
 
   @override
   void onInit() {
-    List<dynamic>? storedNotes = GetStorage().read<List>('tasks');
+    List<dynamic>? storedNotes = GetStorage().read<List>(dbKey);
     if (storedNotes != null) {
       tasks.assignAll(storedNotes.map((e) => Task.fromJson(e)).toList());
     }
 
     ever(tasks, (_) {
-      GetStorage().write('tasks', tasks.toList());
+      GetStorage().write(dbKey, tasks.toList());
     });
 
     super.onInit();
@@ -31,7 +31,7 @@ class TaskController extends GetxController {
   }
 
   void updateTaskStatus(int index) {
-    tasks[index].status = true; // Mark the task as completed
-    update(); // Trigger a rebuild of the widget
+    tasks[index].status = true;
+    update();
   }
 }

@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:todo/screens/task_list.dart';
+import 'package:todo/app/core/values/strings.dart';
+import 'package:todo/app/ui/pages/task_list.dart';
 
 void main() async {
   await GetStorage.init();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Todo App',
+      title: mainTitleStr,
       debugShowCheckedModeBanner: false,
-      home: TaskList(),
+      home: const TaskList(),
+      theme: ThemeData(primaryColor: Colors.blue),
     );
   }
 }

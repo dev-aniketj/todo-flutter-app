@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todo/app/core/values/colors.dart';
+import 'package:todo/app/core/values/strings.dart';
 
-import '../model.dart';
-import 'controller.dart';
+import '../../controller/task_controller.dart';
+import '../../models/task_model.dart';
 
 class NewTask extends StatelessWidget {
   final int? index;
 
-  NewTask({this.index});
+  const NewTask({super.key, this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +20,14 @@ class NewTask extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text('Create a New Task')),
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(createNewTStr),
+          backgroundColor: Colors.blue.shade200,
+        ),
         body: Padding(
           padding: const EdgeInsets.all(15),
-          child: Container(
+          child: SizedBox(
             height: 500,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -33,14 +39,14 @@ class NewTask extends StatelessWidget {
                     autofocus: true,
                     textCapitalization: TextCapitalization.sentences,
                     decoration: InputDecoration(
-                      hintText: 'Create a new task!!',
-                      labelText: 'My Task',
+                      hintText: hintTStr,
+                      labelText: labelTStr,
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black87),
-                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: textColor),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(color: textColor, fontSize: 20),
                     keyboardType: TextInputType.text,
                     maxLines: 5,
                   ),
@@ -49,21 +55,26 @@ class NewTask extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     ElevatedButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: Text('Cancel'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: addBtnColor,
+                      ),
+                      onPressed: () => Get.back(),
+                      child: const Text(cancelStr,
+                          style: TextStyle(color: textColor)),
                     ),
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: cancelBtnColor,
+                      ),
                       onPressed: () {
                         taskController.add(Task(
                           title: textEditingController.text,
                           status: false,
                         ));
-
                         Get.back();
                       },
-                      child: const Text('Add'),
+                      child: const Text(addStr,
+                          style: TextStyle(color: textColor)),
                     ),
                   ],
                 ),
