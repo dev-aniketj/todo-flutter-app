@@ -1,5 +1,11 @@
 # Todo Flutter App
 
+## Demo
+<img src="https://github.com/dev-aniketj/todo-flutter-app/blob/master/ss/gif/gif1.gif" height="200" alt="Todo App Demo">
+
+## ScreenShot
+<img src="https://github.com/dev-aniketj/todo-flutter-app/blob/master/ss/ss1.jpg" height="200" alt="Todo App SS">
+
 Welcome to the Todo Flutter App repository! This is a simple Flutter application for managing your daily tasks. It follows the MVC (Model-View-Controller) architecture and utilizes the `get` package for state management and `get_storage` for local database storage.
 
 ## Project Structure
