@@ -1,16 +1,53 @@
-# todo
+# Todo Flutter App
 
-A new Flutter project.
+Welcome to the Todo Flutter App repository! This is a simple Flutter application for managing your daily tasks. It follows the MVC (Model-View-Controller) architecture and utilizes the `get` package for state management and `get_storage` for local database storage.
+
+## Project Structure
+
+- **main.dart**: Entry point of the application.
+- **app**
+  - **controller**
+    - **task_controller.dart**: Contains the controller logic for managing tasks.
+  - **core**
+    - **utils**
+      - **keys.dart**: Contains key constants used throughout the application.
+    - **values**
+      - **colors.dart**: Defines color constants used for theming.
+      - **strings.dart**: Contains string constants used throughout the application.
+  - **models**
+    - **task_models.dart**: Defines the data model for tasks.
+  - **ui**
+    - **pages**
+      - **new_task.dart**: UI for adding a new task.
+      - **task_list.dart**: UI for displaying the list of tasks.
+
+## Features
+
+- Add new tasks.
+- View a list of tasks.
+- Local storage for persistent data.
+- Simple and intuitive user interface.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone this repository.
+2. Ensure you have Flutter installed on your machine.
+3. Run `flutter pub get` to install dependencies.
+4. Run the app using `flutter run`.
 
-A few resources to get you started if this is your first Flutter project:
+## Dependencies
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [get](https://pub.dev/packages/get): State management library for Flutter.
+- [get_storage](https://pub.dev/packages/get_storage): Local storage library for Flutter.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Contributing
+
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or create a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Feel free to customize this README according to your specific project details and requirements.
