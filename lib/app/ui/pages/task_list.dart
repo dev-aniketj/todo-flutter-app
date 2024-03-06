@@ -63,6 +63,7 @@ class TaskList extends StatelessWidget {
                                               color: textColor)),
                                     ),
                                     Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(task.title,
                                             style: const TextStyle(
